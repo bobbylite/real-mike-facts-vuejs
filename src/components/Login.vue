@@ -5,11 +5,11 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" v-model="username" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" v-model="password" class="form-control" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
         <div class="checkbox mb-3">
@@ -39,13 +39,9 @@ export default {
   },
   methods: {
     async login()  {
-        let username = document.getElementById("floatingInput").value,
-            password = document.getElementById("floatingPassword").value;
-        console.log("awaiting request...");
-
-        let response = await this.post("https://reqres.in/api/login", {
-            email: username, 
-            password: password
+      let response = await this.post("https://reqres.in/api/login", {
+            email: this.username, 
+            password: this.password
         });
 
         this.setCookie(response);
