@@ -29,6 +29,7 @@ export default {
   props: {
     post: Function,
     get: Function,
+    put: Function,
     setCookie: Function
   }, 
   data() {
@@ -39,18 +40,19 @@ export default {
   },
   methods: {
     async login()  {
-        let username = document.getElementById("floatingInput").value,
-            password = document.getElementById("floatingPassword").value;
         console.log("awaiting request...");
 
-        let response = await this.post("https://reqres.in/api/login", {
-            email: username, 
-            password: password
+        let firstResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
+        let secondResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+        {
+          realmikefacts : '0000000',
+          tweetId: 332,
+          tweetText: 'This is from vue.js!',
+          isDeleted: false
         });
 
-        this.setCookie(response);
-
-        console.log(response);
+        console.log(firstResponse);
+        console.log(secondResponse)
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <login :post="post" :get="get" :setCookie="setCookie"/>
+  <login :post="post" :get="get" :put="put" :setCookie="setCookie"/>
 </template>
 
 <script>
@@ -14,6 +14,7 @@ export default {
     return {
       post: this.postData,
       get: this.getData,
+      put: this.putData,
       setCookie: this.setCookieData
     }
   }, 
@@ -23,7 +24,7 @@ export default {
             let response = await fetch(url, {
                 method: method,
                 body: JSON.stringify(data),
-                headers: data ? {'Content-Type': 'application/json'} : {}
+                headers: data ? {'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'} : {}
             });
 
             return response.json();
@@ -36,7 +37,10 @@ export default {
     },
     async postData(url, data) {
         return await this.request("POST", url, data);
-    }, 
+    },
+    async putData(url, data) {
+      return await this.request("PUT", url, data);
+    },
     setCookieData(data) {
       Document.cookie = 'access_token=' + data.token;
     }
