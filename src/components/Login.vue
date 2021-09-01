@@ -30,6 +30,7 @@ export default {
     post: Function,
     get: Function,
     put: Function,
+    options: Function,
     setCookie: Function
   }, 
   data() {
@@ -42,17 +43,17 @@ export default {
     async login()  {
         console.log("awaiting request...");
 
-        let firstResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
-        console.log(firstResponse);
+        let getResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
+        console.log(getResponse);
 
-        let secondResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+        let putResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
         {
           realmikefacts : '0000000',
           tweetId: 332,
           tweetText: 'This is from vue.js!',
           isDeleted: false
         });
-        console.log(secondResponse)
+        console.log(putResponse)
     }
   }
 }

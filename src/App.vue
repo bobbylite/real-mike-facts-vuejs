@@ -1,6 +1,6 @@
 <template>
   <div id="container">
-    <login :post="post" :get="get" :put="put" :setCookie="setCookie"/>
+    <login :post="post" :get="get" :put="put" :options="options" :setCookie="setCookie"/>
   </div>
 </template>
 
@@ -17,31 +17,20 @@ export default {
       post: this.postData,
       get: this.getData,
       put: this.putData,
+      options: this.optionsData,
       setCookie: this.setCookieData
     }
   }, 
   methods: {
     async request(method, url, data) {
         try {
-            let response = await fetch(url,{
-              method: method, // *GET, POST, PUT, DELETE, etc.
-              mode: 'cors', // no-cors, *cors, same-origin
-              cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-              credentials: 'omit', // include, same-origin, *omit
-              headers: {
-                'Content-Type': 'application/json'
-                // 'Content-Type': 'application/x-www-form-urlencoded',
-              },
-              redirect: 'follow', // manual, *follow, error
-              referrerPolicy: 'origin-when-cross-origin', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-              body: JSON.stringify(data) // body data type must match "Content-Type" header
-            }
-            /*{
+            let response = await fetch(url,
+            {
                 method: method,
                 body: JSON.stringify(data),
-                headers: data ? {'Content-Type': 'application/json', 'origin': 'https://bobbylite.github.io/realmikefacts/'} : {}
-            }*/);
-
+                headers: data ? {'Content-Type': 'application/json'} : {}
+            });
+            console.log(response);
             return response.json();
         } catch (err) {
             throw new Error(err);
@@ -55,6 +44,9 @@ export default {
     },
     async putData(url, data) {
       return await this.request("PUT", url, data);
+    },
+    async optionsData(url, data) {
+      return await this.request("OPTIONS", url, data);
     },
     setCookieData(data) {
       Document.cookie = 'access_token=' + data.token;
