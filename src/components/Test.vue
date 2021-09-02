@@ -8,11 +8,13 @@
             <input type="number" v-model="tweetId" class="form-control" id="floatingInput" placeholder="sample tweet">
             <label for="floatingInput">Tweet ID</label>
         </div>
+        <br/>
         <div class="form-floating">
             <input type="text" v-model="tweetText" class="form-control" id="floatingInput" placeholder="sample tweet">
             <label for="floatingInput">Tweet</label>
         </div>
-
+        <br/>
+        <br/>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Make AWS Request</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
 
