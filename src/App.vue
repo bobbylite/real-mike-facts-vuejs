@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <div id="nav" class=".navbar-nav">
-      <router-link to="/aws-test">Test</router-link> |
+      <router-link to="/">Test</router-link> |
       <router-link to="/">Login</router-link>
     </div>
   </div>

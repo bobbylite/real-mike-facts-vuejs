@@ -5,9 +5,9 @@ import { postData, getData, putData, optionsData } from "../http/request";
 
 const routes = [
   {
-    path: "/aws-test",
-    name: "Test",
-    component: Test,
+    path: "/realmikefacts",
+    name: "Login",
+    component: Login,
     props: {
         post: postData,
         get: getData,
@@ -16,9 +16,9 @@ const routes = [
     }
   },
   {
-    path: "/",
-    name: "Login",
-    component: Login,
+    path: "/realmikefacts",
+    name: "Test",
+    component: Test,
     props: {
         post: postData,
         get: getData,
