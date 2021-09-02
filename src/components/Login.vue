@@ -30,8 +30,7 @@ export default {
     post: Function,
     get: Function,
     put: Function,
-    options: Function,
-    setCookie: Function
+    options: Function
   }, 
   data() {
       return {
