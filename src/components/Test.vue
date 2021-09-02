@@ -5,7 +5,11 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="sample tweet">
+            <input type="number" v-model="tweetId" class="form-control" id="floatingInput" placeholder="sample tweet">
+            <label for="floatingInput">Tweet ID</label>
+        </div>
+        <div class="form-floating">
+            <input type="text" v-model="tweetText" class="form-control" id="floatingInput" placeholder="sample tweet">
             <label for="floatingInput">Tweet</label>
         </div>
 
@@ -26,20 +30,22 @@ export default {
   }, 
   data() {
       return {
+          tweetText: '',
+          tweetId: ''
       }
   },
   methods: {
     async awsRequest()  {
-        console.log("awaiting request...");
+        console.log("Tweet: " + this.tweetText);
 
         let getResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
         console.log(getResponse);
 
         let putResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
         {
-          realmikefacts : '0000000',
-          tweetId: 332,
-          tweetText: 'This is from vue.js!',
+          realmikefacts : 'https://bobbylite.github.io/realmikefacts/',
+          tweetId: this.tweetId,
+          tweetText: this.tweetText,
           isDeleted: false
         });
         console.log(putResponse)
