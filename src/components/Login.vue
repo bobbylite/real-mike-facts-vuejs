@@ -1,7 +1,7 @@
 <template>
     <form class="form-signin" @submit.prevent="login()">
 
-        <img class="mb-4" src="/img/Real-Mike-Facts-Logo-1.png" alt="" width="100" height="100">
+        <img class="mb-4" src="https://raw.githubusercontent.com/bobbylite/realmikefacts/master/img/Real-Mike-Facts-Logo-1.png" alt="" width="100" height="100">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         
         <div class="form-floating">
@@ -29,7 +29,8 @@ export default {
   props: {
     post: Function,
     get: Function,
-    setCookie: Function
+    put: Function,
+    options: Function
   }, 
   data() {
       return {
@@ -39,14 +40,19 @@ export default {
   },
   methods: {
     async login()  {
-      let response = await this.post("https://reqres.in/api/login", {
-            email: this.username, 
-            password: this.password
+        console.log("awaiting request...");
+
+        let getResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
+        console.log(getResponse);
+
+        let putResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+        {
+          realmikefacts : '0000000',
+          tweetId: 332,
+          tweetText: 'This is from vue.js!',
+          isDeleted: false
         });
-
-        this.setCookie(response);
-
-        console.log(response);
+        console.log(putResponse)
     }
   }
 }
@@ -58,7 +64,6 @@ export default {
   max-width: 330px;
   padding: 15px;
   margin: auto;
-  position: absolute;
 }
 
 .form-signin .checkbox {
