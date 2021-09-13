@@ -1,7 +1,8 @@
 <template>
+  <div>
     <form class="form-signin" @submit.prevent="awsRequest()">
 
-        <img class="mb-4" src="https://raw.githubusercontent.com/bobbylite/realmikefacts/master/img/Real-Mike-Facts-Logo-1.png" alt="" width="100" height="100">
+        <img class="icon" src="https://raw.githubusercontent.com/bobbylite/realmikefacts/master/img/Real-Mike-Facts-Logo-1.png" alt="" width="100" height="100">
         <h1 class="h3 mb-3 fw-normal">Development Options</h1>
         
         <div class="form-floating">
@@ -19,6 +20,7 @@
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
 
     </form>
+  </div>
 </template>
 
 <script>
@@ -37,9 +39,7 @@ export default {
       }
   },
   methods: {
-    async awsRequest()  {
-        console.log("Tweet: " + this.tweetText);
-
+    async awsRequest() {
         let getResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
         console.log(getResponse);
 
@@ -50,13 +50,18 @@ export default {
           tweetText: this.tweetText,
           isDeleted: false
         });
-        console.log(putResponse)
+        console.log(putResponse);
     }
   }
 }
 </script>
 
 <style scoped>
+.icon {
+  background-color: #0000;
+  border-radius: 50%;
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
