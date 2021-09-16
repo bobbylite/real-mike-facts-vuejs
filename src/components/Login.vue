@@ -71,9 +71,8 @@ export default {
 
 .form-signin {
   width: 100%;
+  padding: 15px;
   max-width: 330px;
-  height: 100%;
-  padding: 0px;
   margin: auto;
 }
 

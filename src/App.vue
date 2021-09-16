@@ -2,7 +2,7 @@
   <div>
       <Navbar class="navbar" />
       <div id="container">
-      <div id="nav" class=".navbar-nav">
+      <div id="router-view">
         <router-link to="/">Test</router-link> |
         <router-link to="/">Login</router-link>
       </div>
@@ -40,15 +40,13 @@ body {
   align-content: center;
   align-self: center;
   align-items: center;
-  margin-top: 0px;
-  padding-top: 0px;
 }
 #container {
   display: inline-block;
   align-items: center;
   align-self: center;
 }
-#nav {
+#router-view {
   display: none;
 }
 </style>
