@@ -70,16 +70,7 @@ export default {
     animation-direction: alternate;
     left: 0px;
     opacity: 0%;
-}
-
-.collapse-animation {
-    position: relative;
-    animation-name: animate-collapse;
-    animation-duration: .25s;
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-    left: 0px;
-    opacity: 0%;
+    visibility: hidden;
 }
 
 @keyframes animate-show {
@@ -88,7 +79,7 @@ export default {
 }
 
 @keyframes animate-collapse {
-    0%  {left:0px; opacity:100%; display: flex}
-    100%  {left:500px; opacity: 0%; display: flex;}
+    0%  {left:0px; opacity:100%; visibility: visible;}
+    100%  {left:500px; opacity: 0%; visibility: visible;}
 }
 </style>
