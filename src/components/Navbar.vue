@@ -1,15 +1,5 @@
 <template>
     <div>
-        <div v-bind:class="{
-                'collapse-animation animate-collapse': collapseStateStyle, 
-                'menu-animation animate-show': showStateStyle
-            }"
-            id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-            <h5 class="text-grey h4">Collapsed content</h5>
-            <span class="text-muted">Toggleable via the navbar brand.</span>
-        </div>
-        </div>
         <nav class="navbar navbar-dark">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" v-on:click="toggleClass" @focus="focusReturn">
@@ -17,6 +7,18 @@
                 </button>
             </div>
         </nav>
+        <div v-bind:class="{'collapse-animation animate-collapse': collapseStateStyle, 'menu-animation animate-show': showStateStyle}" id="navbarToggleExternalContent">
+            <div class="bg-dark">
+                <h5 class="text-grey">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+        <div v-bind:class="{'collapse-animation animate-collapse': collapseStateStyle, 'menu-animation animate-show': showStateStyle}" id="navbarToggleExternalContent">
+            <div class="bg-dark">
+                <h5 class="text-grey">Collapsed content v2</h5>
+                <span class="text-muted">Toggleable via the navbar brand v2.</span>
+            </div>
+        </div>
     </div>
 </template> 
 
@@ -27,8 +29,8 @@ export default {
   }, 
   data() {
       return {
-          showStateStyle: false,
-          collapseStateStyle: true
+          showStateStyle: true,
+          collapseStateStyle: false
       }
   },
   methods: {
@@ -55,6 +57,9 @@ export default {
     animation-duration: .25s;
     animation-iteration-count: 1;
     animation-direction: alternate;
+    left: 0px;
+    display: flex;
+    padding-right: 10px;
 }
 
 .collapse-animation {
@@ -63,7 +68,17 @@ export default {
     animation-duration: .25s;
     animation-iteration-count: 1;
     animation-direction: alternate;
-    left: 600px;
+    left: 0px;
+    opacity: 0%;
+}
+
+.collapse-animation {
+    position: relative;
+    animation-name: animate-collapse;
+    animation-duration: .25s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    left: 0px;
     opacity: 0%;
 }
 
@@ -73,7 +88,7 @@ export default {
 }
 
 @keyframes animate-collapse {
-    0%  {left:0px; opacity:100%;}
-    100%  {left:500px; opacity: 0%}
+    0%  {left:0px; opacity:100%; display: flex}
+    100%  {left:500px; opacity: 0%; display: flex;}
 }
 </style>
