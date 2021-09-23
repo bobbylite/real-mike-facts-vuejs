@@ -5,21 +5,7 @@
         <img class="icon" src="https://raw.githubusercontent.com/bobbylite/realmikefacts/master/img/Real-Mike-Facts-Logo-1.png" width="100" height="100">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         
-        <div class="form-floating">
-            <input type="email" v-model="username" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" v-model="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-        </div>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-        </div>
-        
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <a class="w-100 btn btn-lg btn-primary" href="https://real-mike-facts-domain-service.auth.us-east-2.amazoncognito.com/login?client_id=37p0rso5u19lhii15m7m1ls4ne&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:8080/">Sign in</a>
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
 
     </form>
@@ -43,21 +29,23 @@ export default {
   },
   methods: {
     async login()  {
-        console.log("awaiting request...");
+        //console.log("awaiting request...");
 
-        let getResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
-        console.log(getResponse);
+        //let getResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
+        //console.log(getResponse);
 
-        let putResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+        /*let putResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
         {
           realmikefacts : '0000000',
           tweetId: 332,
           tweetText: 'This is from vue.js!',
           isDeleted: false
         });
-        console.log(putResponse);
+        console.log(putResponse);*/
 
-        this.$router.push({name: 'Test'});
+        //this.$router.push({name: 'Test'});
+        var x = this.$route;
+        console.log(x);
     }
   }
 }

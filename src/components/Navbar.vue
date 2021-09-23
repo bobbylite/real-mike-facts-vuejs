@@ -7,17 +7,19 @@
                 </button>
             </div>
         </nav>
-        <div v-bind:class="{'collapse-animation animate-collapse': collapseStateStyle, 'menu-animation animate-show': showStateStyle}" id="navbarToggleExternalContent">
+        <div v-bind:class="{'collapse-animation animate-collapse': collapseStateStyle, 'menu-animation animate-show': showStateStyle}" id="home">
             <div class="bg-dark">
                 <h5 class="text-grey">Collapsed content</h5>
                 <span class="text-muted">Toggleable via the navbar brand.</span>
             </div>
         </div>
-        <div v-bind:class="{'collapse-animation animate-collapse': collapseStateStyle, 'menu-animation animate-show': showStateStyle}" id="navbarToggleExternalContent">
+        <div v-bind:class="{'collapse-animation animate-collapse': collapseStateStyle, 'menu-animation animate-show': showStateStyle}" id="about">
             <div class="bg-dark">
                 <h5 class="text-grey">Collapsed content v2</h5>
                 <span class="text-muted">Toggleable via the navbar brand v2.</span>
             </div>
+        </div>
+        <div class="bg-dark" id="spacing">
         </div>
     </div>
 </template> 
@@ -51,6 +53,16 @@ export default {
 </script> 
 
 <style>
+@keyframes animate-show {
+    0%  {left:500px;}
+    100%  {left:0px;}
+}
+
+@keyframes animate-collapse {
+    0%  {left:0px; opacity:100%; visibility: visible;}
+    100%  {left:500px; opacity: 0%; visibility: visible;}
+}
+
 .menu-animation {
     position: relative;
     animation-name: animate-show;
@@ -71,15 +83,5 @@ export default {
     left: 0px;
     opacity: 0%;
     visibility: hidden;
-}
-
-@keyframes animate-show {
-    0%  {left:500px;}
-    100%  {left:0px;}
-}
-
-@keyframes animate-collapse {
-    0%  {left:0px; opacity:100%; visibility: visible;}
-    100%  {left:500px; opacity: 0%; visibility: visible;}
 }
 </style>

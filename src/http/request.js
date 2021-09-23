@@ -1,10 +1,14 @@
-export async function request(method, url, data) {
+export async function request(method, url, token, data) {
     try {
-        let response = await fetch(url,
-        {
+        let response = await fetch(url, {
             method: method,
             body: JSON.stringify(data),
-            headers: data ? {'Content-Type': 'application/json'} : {}
+            headers: data ? {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            } : {
+                'Authorization': token
+            }
         });
 
         return response.json();
@@ -13,20 +17,20 @@ export async function request(method, url, data) {
     }
 }
 
-export async function getData(url) {
-    return await request("GET", url);
+export async function getData(url, authorization) {
+    return await request("GET", url, authorization);
 }
 
-export async function postData(url, data) {
-    return await request("POST", url, data);
+export async function postData(url, authorization, data) {
+    return await request("POST", url, authorization, data);
 }
 
-export async function putData(url, data) {
-    return await request("PUT", url, data);
+export async function putData(url, authorization, data) {
+    return await request("PUT", url, authorization, data);
 }
 
-export async function optionsData(url, data) {
-    return await request("OPTIONS", url, data);
+export async function optionsData(url, authorization, data) {
+    return await request("OPTIONS", url, authorization, data);
 }
 
 export function setCookieData(data) {

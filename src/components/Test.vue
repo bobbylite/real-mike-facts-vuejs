@@ -25,8 +25,12 @@
 
 <script>
 export default {
-  name: 'Test',
+  name: 'home',
   props: {
+    id_token: String,
+    access_token: String,
+    expires_in: String,
+    token_type: String,
     post: Function,
     get: Function,
     put: Function,
@@ -40,17 +44,20 @@ export default {
   },
   methods: {
     async awsRequest() {
-        let getResponse = await this.get("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
+        console.log(this.$route.params.id_token);
+        let getResponse = await this.get("ljflskdjflk", "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets");
         console.log(getResponse);
 
-        let putResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+        /*let putResponse = await this.put("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
         {
           realmikefacts : 'https://bobbylite.github.io/realmikefacts/',
           tweetId: this.tweetId,
           tweetText: this.tweetText,
           isDeleted: false
         });
-        console.log(putResponse);
+        console.log(putResponse);*/
+
+        console.log(this.$route.params.id_token);
     }
   }
 }
