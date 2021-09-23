@@ -1,13 +1,9 @@
 <template>
-  <div>
+  <div id="container">
       <Navbar class="navbar" />
       <div id="container">
-      <div id="router-view">
-        <router-link to="/">Test</router-link> |
-        <router-link to="/">Login</router-link>
+        <router-view />
       </div>
-    </div>
-    <router-view />
   </div>
 </template>
 
@@ -40,11 +36,15 @@ body {
   align-content: center;
   align-self: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
 #container {
   display: inline-block;
   align-items: center;
   align-self: center;
+  height: 100%;
+  width: 100%;
 }
 #router-view {
   display: none;
