@@ -60,9 +60,9 @@ export default {
           if (getResponse.message && getResponse.message === 'Unauthorized')
             this.$router.push({ name: 'login', path: '/login', params: { id_token: cleanIdToken } });
           else
-            this.SendToast(getResponse.Items[3].tweetText);
+            this.SendToast(getResponse.Message.Items[3].tweetText);
 
-          await this.put(
+          let putResponse = await this.put(
           "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
           cleanIdToken ,
           {
@@ -72,7 +72,7 @@ export default {
             isDeleted: false
           });
 
-          console.log(cleanIdToken);
+          console.log(putResponse);
         }
         catch(err) {
           console.log(err);
@@ -82,13 +82,17 @@ export default {
       return this.$route.params.id_token.split('=')[1];
     },
     async OnComponentLoad() {
-      let getResponse = await this.get(
-            "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
-            this.getToken()
-          );
+      try {
+        let getResponse = await this.get(
+              "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+              this.getToken()
+            );
 
-      let text = getResponse.Items[3].tweetText;
-      console.log(text);
+        let text = getResponse.Message.Items[3].tweetText;
+        console.log(text);
+      } catch (err) {
+        console.log(err);
+      }
     }, 
     SendToast(toastMessage) {
       this.AwsMessage = 'AWS Replaced Tweet: ' + toastMessage;
