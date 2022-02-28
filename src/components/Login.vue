@@ -19,7 +19,8 @@ export default {
     post: Function,
     get: Function,
     put: Function,
-    options: Function
+    options: Function,
+    authorizationToken: Object
   }, 
   data() {
       return {

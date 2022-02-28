@@ -83,15 +83,24 @@ export default {
     },
     async OnComponentLoad() {
       try {
+        let postResponse = await this.post("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+        this.getToken(),
+        {
+          SetCookie : true,
+          JwtToken: this.getToken()
+        });
+        console.log(postResponse);
+
         let getResponse = await this.get(
               "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
               this.getToken()
             );
-
+        console.log(getResponse);
+        
         let text = getResponse.Message.Items[3].tweetText;
-        console.log(text);
+        console.log('Tweet Text: ' + text);
       } catch (err) {
-        console.log(err);
+        console.log("OnComponentLoadError: " + err);
       }
     }, 
     SendToast(toastMessage) {

@@ -1,4 +1,4 @@
-import { createWebHashHistory, createRouter } from "vue-router";
+import { createWebHistory, createRouter } from "vue-router";
 import Test from "@/components/Test.vue";
 import Login from "@/components/Login.vue";
 import { postData, getData, putData, optionsData } from "../http/request";
@@ -29,7 +29,7 @@ const routes = [{
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes
 });
 
