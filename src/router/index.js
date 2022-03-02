@@ -5,16 +5,16 @@ import Home from "@/components/Home.vue";
 import { postData, getData, putData, optionsData } from "../http/request";
 
 const routes = [{
-    path: "/:id_token&:access_token&:expires_in&:token_type",
-    name: "Test",
-    component: Test,
-    props: {
-        post: postData,
-        get: getData,
-        put: putData,
-        options: optionsData,
-    }
-},
+        path: "/:id_token&:access_token&:expires_in&:token_type",
+        name: "Test",
+        component: Test,
+        props: {
+            post: postData,
+            get: getData,
+            put: putData,
+            options: optionsData,
+        }
+    },
     {
         path: "/",
         name: "login",
