@@ -16,11 +16,15 @@ cd dist
 # cp ../devops/content/<GIT-CONTENT>.* ./
 cp ../devops/content/README.md ./
 
-git init
-git add -A
-git commit -m 'deploy'
-git remote add origin https://github.com/bobbylite/realmikefacts
-git push --set-upstream origin master -f
+#git init
+#git add -A
+#git commit -m 'deploy'
+#git remote add origin https://github.com/bobbylite/realmikefacts
+#git push --set-upstream origin develop
+
+git add --all
+git commit -m 'production deployment'
+git push
 
 
 # if you are deploying to https://<USERNAME>.github.io
