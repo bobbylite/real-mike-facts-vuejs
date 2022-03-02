@@ -5,19 +5,8 @@ import Home from "@/components/Home.vue";
 import { postData, getData, putData, optionsData } from "../http/request";
 
 const routes = [{
-        path: "/:id_token&:access_token&:expires_in&:token_type",
-        name: "Test",
-        component: Test,
-        props: {
-            post: postData,
-            get: getData,
-            put: putData,
-            options: optionsData,
-        }
-    },
-    {
-        path: "/",
-        name: "login",
+        path: "/realmikefacts",
+        name: "Login",
         component: Login,
         props: {
             post: postData,
@@ -27,19 +16,8 @@ const routes = [{
         }
     },
     {
-        path: "/Home",
-        name: "Home",
-        component: Home,
-        props: {
-            post: postData,
-            get: getData,
-            put: putData,
-            options: optionsData,
-        }
-    },
-    {
-        path: "/Dev",
-        name: "Dev",
+        path: "/realmikefacts",
+        name: "Test",
         component: Test,
         props: {
             post: postData,
@@ -48,13 +26,11 @@ const routes = [{
             options: optionsData,
         }
     },
-    
-
 ];
 
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes
+    history: createWebHistory(),
+    routes,
 });
 
 export default router;
