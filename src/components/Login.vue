@@ -5,7 +5,7 @@
         <img class="icon" src="https://raw.githubusercontent.com/bobbylite/realmikefacts/master/img/Real-Mike-Facts-Logo-1.png" width="100" height="100">
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         
-        <a class="w-100 btn btn-lg btn-primary" href="https://real-mike-facts-domain-service.auth.us-east-2.amazoncognito.com/login?client_id=37p0rso5u19lhii15m7m1ls4ne&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost:8080/">Sign in</a>
+        <a class="w-100 btn btn-lg btn-primary" href="https://real-mike-facts-domain-service.auth.us-east-2.amazoncognito.com/login?client_id=37p0rso5u19lhii15m7m1ls4ne&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://bobbylite.github.io/realmikefacts/">Sign in</a>
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
 
     </form>

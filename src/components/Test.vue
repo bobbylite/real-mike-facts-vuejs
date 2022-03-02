@@ -17,7 +17,7 @@
         <br/>
         <br/>
         <button class="w-100 btn btn-lg btn-primary" type="submit">Make AWS Request</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
     </form>
     <Toast :GetMessage="AwsMessage" />
   </div>
@@ -51,7 +51,7 @@ export default {
 
         try {
           getResponse = await this.get(
-            "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+            "https://api.realmikefacts.com//tweets",
             cleanIdToken
           );
 
@@ -63,7 +63,7 @@ export default {
             this.SendToast(getResponse.Message.Items[3].tweetText);
 
           let putResponse = await this.put(
-          "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+          "https://api.realmikefacts.com//tweets",
           cleanIdToken ,
           {
             realmikefacts : 'https://bobbylite.github.io/realmikefacts/',
@@ -83,7 +83,7 @@ export default {
     },
     async OnComponentLoad() {
       try {
-        let postResponse = await this.post("https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+        let postResponse = await this.post("https://api.realmikefacts.com/tweets",
         this.getToken(),
         {
           SetCookie : true,
@@ -92,13 +92,16 @@ export default {
         console.log(postResponse);
 
         let getResponse = await this.get(
-              "https://nfxoj776ra.execute-api.us-east-2.amazonaws.com/tweets",
+              "https://api.realmikefacts.com//tweets",
               this.getToken()
             );
         console.log(getResponse);
-        
+
+        this.$router.push({name: 'Home'});
+
         let text = getResponse.Message.Items[3].tweetText;
         console.log('Tweet Text: ' + text);
+
       } catch (err) {
         console.log("OnComponentLoadError: " + err);
       }

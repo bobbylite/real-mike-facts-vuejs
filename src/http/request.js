@@ -5,10 +5,13 @@ export async function request(method, url, authorization, data) {
             body: JSON.stringify(data),
             headers: data ? {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + authorization
+                'Authorization': 'Bearer ' + authorization,
+                'Referrer-Policy': 'no-referrer-when-downgrade',
+                'Access-Control-Allow-Origin': 'realmikefacts.com'
             } : {
                 'Authorization': 'Bearer ' + authorization
-            }
+            },
+            credentials: 'include'
         });
 
         return response.json();
