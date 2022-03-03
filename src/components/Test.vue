@@ -83,22 +83,13 @@ export default {
     },
     async OnComponentLoad() {
       try {
-        /*let postResponse = await this.post("https://api.realmikefacts.com/tweets",
-        this.getToken(),
-        {
-          SetCookie : true,
-          JwtToken: this.getToken()
-        });
-        console.log(postResponse);
-        console.log(document.cookie);*/
-
         let postResponse = await this.post(
-              "https://api.realmikefacts.com/authorization",
-              this.getToken(), 
-              {
-                AuthorizationToken: this.getToken()
-              }
-            );
+          "https://api.realmikefacts.com/authorization",
+          this.getToken(), 
+          {
+            AuthorizationToken: this.getToken()
+          }
+        );
 
         console.log(postResponse);
 
