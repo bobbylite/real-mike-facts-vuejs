@@ -31,7 +31,7 @@ export default {
   methods: {
     async handler()  {
         let response = await fetch('https://api.realmikefacts.com/authorization', {
-            method: 'POST',
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Referrer-Policy': 'no-referrer-when-downgrade',
