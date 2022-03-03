@@ -30,7 +30,19 @@ export default {
   },
   methods: {
     async handler()  {
-        this.$router.push({name: 'Dev'});
+        let response = await fetch('https://api.realmikefacts.com/authorization', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Referrer-Policy': 'no-referrer-when-downgrade',
+                'Access-Control-Allow-Origin': 'realmikefacts.com'
+            },
+            credentials: 'include'
+        });
+        console.log(response);
+
+
+        //this.$router.push({name: 'Dev'});
     }
   }
 }
