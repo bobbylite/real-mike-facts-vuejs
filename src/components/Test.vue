@@ -83,25 +83,26 @@ export default {
     },
     async OnComponentLoad() {
       try {
-        let postResponse = await this.post("https://api.realmikefacts.com/tweets",
+        /*let postResponse = await this.post("https://api.realmikefacts.com/tweets",
         this.getToken(),
         {
           SetCookie : true,
           JwtToken: this.getToken()
         });
         console.log(postResponse);
+        console.log(document.cookie);*/
 
-        let getResponse = await this.get(
-              "https://api.realmikefacts.com//tweets",
-              this.getToken()
+        let postResponse = await this.post(
+              "https://api.realmikefacts.com/authorization",
+              this.getToken(), 
+              {
+                AuthorizationToken: this.getToken()
+              }
             );
-        console.log(getResponse);
+
+        console.log(postResponse);
 
         this.$router.push({name: 'Home'});
-
-        let text = getResponse.Message.Items[3].tweetText;
-        console.log('Tweet Text: ' + text);
-
       } catch (err) {
         console.log("OnComponentLoadError: " + err);
       }

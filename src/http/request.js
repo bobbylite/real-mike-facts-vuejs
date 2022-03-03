@@ -9,7 +9,9 @@ export async function request(method, url, authorization, data) {
                 'Referrer-Policy': 'no-referrer-when-downgrade',
                 'Access-Control-Allow-Origin': 'realmikefacts.com'
             } : {
-                'Authorization': 'Bearer ' + authorization
+                'Content-Type': 'application/json',
+                'Referrer-Policy': 'no-referrer-when-downgrade',
+                'Access-Control-Allow-Origin': 'realmikefacts.com'
             },
             credentials: 'include'
         });
