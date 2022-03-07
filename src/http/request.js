@@ -18,7 +18,7 @@ export async function request(method, url, authorization, data) {
 
         return response.json();
     } catch (err) {
-        throw new Error(err);
+        console.log(err);
     }
 }
 

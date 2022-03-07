@@ -82,17 +82,18 @@ export default {
       return this.$route.params.id_token.split('=')[1];
     },
     async OnComponentLoad() {
+      var token = this.getToken();
       try {
         let postResponse = await this.post(
           "https://api.realmikefacts.com/authorization",
-          this.getToken(), 
+          token, 
           {
-            AuthorizationToken: this.getToken()
+            AuthorizationToken: token
           }
         );
 
         console.log(postResponse);
-
+        
         this.$router.push({name: 'Home'});
       } catch (err) {
         console.log("OnComponentLoadError: " + err);
